@@ -9,7 +9,8 @@
 3. [Backend](#backend)
 4. [Frontend](#frontend)
 5. [Configuración](#configuración)
-6. [Recursos](#recursos)
+6. [Entorno de desarrollo](#entorno-de-desarrollo)
+7. [Recursos](#recursos)
 
 ## Introducción
 
@@ -84,6 +85,39 @@ DB_PASSWORD=secret
 > [!IMPORTANT]
 > 
 > `DB_HOST` debe ser `postgres`, ya que corresponde al nombre del servicio definido en `docker-compose.yml`.
+
+## Entorno de desarrollo
+
+Este proyecto utiliza contenedores Docker para facilitar el entorno de desarrollo local.
+
+Para iniciar el entorno de desarrollo, asegúrate de tener instalado [Docker](https://docs.docker.com/engine/install/).
+
+Luego ejecuta el siguiente comando desde la raíz del proyecto (Asegúrate de estar en el directorio `App/`):
+
+```shell
+docker compose up -d --build
+```
+
+Este comando construirá las imágenes necesarias y levantará los servicios del backend y frontend en segundo plano.
+
+Una vez que los contenedores estén activos, puedes acceder a los servicios desde tu navegador:
+
+- Backend (API Laravel): http://localhost:8000
+- Frontend (React + Vite): http://localhost:5173
+
+Para finalizar el entorno de desarrollo, ejecuta el siguiente comando desde la raíz del proyecto (Asegúrate de estar en el directorio `App/`):
+
+```shell
+docker compose down -v
+```
+
+Este comando detiene los contenedores y elimina los datos locales del desarrollo.
+
+> [!NOTE]
+> 
+> La primera ejecución puede tardar algunos minutos debido a la instalación de dependencias.
+> 
+> Si realizas cambios en el código fuente, estos se reflejarán automáticamente gracias a los volúmenes configurados en Docker.
 
 ## Recursos
 
