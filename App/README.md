@@ -39,7 +39,7 @@ App/
 laravel new backend
 ```
 
-Detalles del proyecto:
+Detalles de la instalación del backend:
 
 1. Which starter kit would you like to install? **> None**
 2. Which testing framework do you prefer? **> Pest**
@@ -54,7 +54,7 @@ Detalles del proyecto:
 npm create vite@latest
 ```
 
-Detalles del proyecto:
+Detalles de la instalación del frontend:
 
 1. Project name: **frontend**
 2. Select a framework: **React**
