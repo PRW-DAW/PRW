@@ -18,20 +18,15 @@
 
 ## Estructura del proyecto
 
-<details>
-<summary>Click me!</summary>
-
 ```
 App/
 ├── backend/
-│   ├── ...
+│   ├── .env
 │   └── Dockerfile
 ├── frontend/
-│   ├── ...
 │   └── Dockerfile
 └── docker-compose.yaml
 ```
-</details>
 
 ## Backend
 
