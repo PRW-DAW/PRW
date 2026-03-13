@@ -13,6 +13,7 @@
 5. [Configuración](#configuración)
 6. [Entorno de desarrollo](#entorno-de-desarrollo)
 7. [Recursos](#recursos)
+8. [Créditos](#créditos)
 
 ## Introducción
 
@@ -124,3 +125,7 @@ Laravel https://laravel.com/docs/12.x/installation#creating-a-laravel-project
 Vite https://vite.dev/guide/#scaffolding-your-first-vite-project
 
 Docker https://docs.docker.com/engine/install/
+
+## Créditos
+
+Red Cube Illustration https://www.canva.com/graphics/MAEFh59rD9c/
