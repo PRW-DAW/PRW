@@ -7,12 +7,12 @@ body:
       description: Select the type of feature request.
       multiple: false
       options:
-        - 'New feature'
-        - 'Documentation'
-        - 'Style and UI'
-        - 'Code refactor'
-        - 'Performance improvements'
-        - 'New test'
+        - New feature
+        - Documentation
+        - Style and UI
+        - Code refactor
+        - Performance improvements
+        - New test
     validations:
       required: true
   - type: textarea
