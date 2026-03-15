@@ -1,0 +1,13 @@
+# Git
+/.git
+.gitattributes
+.gitignore
+
+# GitHub
+/.github
+
+# VSCode
+/.vscode
+
+# Releases
+/releases
