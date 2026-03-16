@@ -16,8 +16,6 @@
 
 ## Introducción
 
-...
-
 <details>
 <summary>Estructura del proyecto</summary>
 
