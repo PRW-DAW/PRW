@@ -4,15 +4,28 @@
 
 [![GitHub Stars](https://img.shields.io/github/stars/PRW-DAW/DevHub?style=social&logo=github&logoColor=000000&label=Stars&labelColor=ffffff&color=ffffff)](https://github.com/PRW-DAW/DevHub/stargazers)
 
+[![Docker Container](https://img.shields.io/badge/DevHub-Nginx-2560FF?style=flat&logo=docker&logoColor=ffffff&label=&labelColor=2560FF&color=2560FF)](https://github.com/PRW-DAW/DevHub/pkgs/container/devhub-nginx)
+[![Docker Pulls](https://img.shields.io/docker/pulls/fjrodafo/portfolio?style=flat&logo=docker&logoColor=ffffff&label=Pulls&labelColor=2560FF&color=2560FF)](https://hub.docker.com/r/fjrodafo/devhub-nginx)
+[![Image Size](https://img.shields.io/docker/image-size/fjrodafo/portfolio?style=flat&logo=docker&logoColor=ffffff&label=Size&labelColor=2560FF&color=2560FF)](https://hub.docker.com/r/fjrodafo/devhub-nginx)
+
+[![Docker Container](https://img.shields.io/badge/DevHub-Backend-2560FF?style=flat&logo=docker&logoColor=ffffff&label=&labelColor=2560FF&color=2560FF)](https://github.com/PRW-DAW/DevHub/pkgs/container/devhub-backend)
+[![Docker Pulls](https://img.shields.io/docker/pulls/fjrodafo/portfolio?style=flat&logo=docker&logoColor=ffffff&label=Pulls&labelColor=2560FF&color=2560FF)](https://hub.docker.com/r/fjrodafo/devhub-backend)
+[![Image Size](https://img.shields.io/docker/image-size/fjrodafo/portfolio?style=flat&logo=docker&logoColor=ffffff&label=Size&labelColor=2560FF&color=2560FF)](https://hub.docker.com/r/fjrodafo/devhub-backend)
+
+[![Docker Container](https://img.shields.io/badge/DevHub-Frontend-2560FF?style=flat&logo=docker&logoColor=ffffff&label=&labelColor=2560FF&color=2560FF)](https://github.com/PRW-DAW/DevHub/pkgs/container/devhub-frontend)
+[![Docker Pulls](https://img.shields.io/docker/pulls/fjrodafo/portfolio?style=flat&logo=docker&logoColor=ffffff&label=Pulls&labelColor=2560FF&color=2560FF)](https://hub.docker.com/r/fjrodafo/devhub-frontend)
+[![Image Size](https://img.shields.io/docker/image-size/fjrodafo/portfolio?style=flat&logo=docker&logoColor=ffffff&label=Size&labelColor=2560FF&color=2560FF)](https://hub.docker.com/r/fjrodafo/devhub-frontend)
+
 ## Índice
 
 1. [Introducción](#introducción)
 3. [Backend](#backend)
 4. [Frontend](#frontend)
 5. [Configuración](#configuración)
-6. [Entorno de desarrollo](#entorno-de-desarrollo)
-7. [Recursos](#recursos)
-8. [Créditos](#créditos)
+6. [Configuración de hosts](#configuración-de-hosts)
+7. [Entorno de desarrollo](#entorno-de-desarrollo)
+8. [Recursos](#recursos)
+9. [Créditos](#créditos)
 
 ## Introducción
 
@@ -61,7 +74,32 @@ Detalles de la instalación del frontend:
 
 ## Configuración
 
-Antes de ejecutar el proyecto, crea el archivo de variables de entorno en Laravel:
+Antes de ejecutar el proyecto, crea el archivo de variables de entorno para Docker:
+
+```shell
+cp .env.example .env
+```
+
+Luego, edita el archivo `.env` y configura las credenciales:
+
+```conf
+# Postgres
+POSTGRES_DB=postgres
+POSTGRES_USER=fjrodafo
+POSTGRES_PASSWORD=password
+#POSTGRES_PORT=5432:5432
+
+# Laravel
+#LARAVEL_PORT=8000:8000
+
+# React + Vite
+#REACT_VITE_PORT=5173:5173
+
+# Nginx
+NGINX_PORT=80:80
+```
+
+Además, crea el archivo de variables de entorno para Laravel:
 
 ```shell
 cp backend/.env.example backend/.env
@@ -70,17 +108,30 @@ cp backend/.env.example backend/.env
 Luego, edita el archivo `.env` y configura las credenciales de la base de datos utilizada en Docker:
 
 ```conf
+APP_NAME="DevHub | API"
+
 DB_CONNECTION=pgsql
-DB_HOST=postgres
+DB_HOST=db
 DB_PORT=5432
-DB_DATABASE=laravel
-DB_USERNAME=laravel
-DB_PASSWORD=secret
+DB_DATABASE=postgres
+DB_USERNAME=fjrodafo
+DB_PASSWORD=password
 ```
 
 > [!IMPORTANT]
 > 
-> `DB_HOST` debe ser `postgres`, ya que corresponde al nombre del servicio definido en `docker-compose.yml`.
+> `DB_HOST` debe ser `db`, ya que corresponde al nombre del servicio definido en `docker-compose.yml`.
+
+## Configuración de hosts
+
+Para acceder a DevHub con un dominio local personalizado, agregue las siguientes líneas a su archivo `/etc/hosts`:
+
+```conf
+127.0.0.1	devhub.com	www.devhub.com
+127.0.0.1	devhub.pro	www.devhub.pro
+127.0.0.1	api.devhub.com	www.api.devhub.com
+127.0.0.1	api.devhub.pro	www.api.devhub.pro
+```
 
 ## Entorno de desarrollo
 
@@ -98,8 +149,8 @@ Este comando construirá las imágenes necesarias y levantará los servicios del
 
 Una vez que los contenedores estén activos, puedes acceder a los servicios desde tu navegador:
 
-- Backend (API Laravel): http://localhost:8000
-- Frontend (React + Vite): http://localhost:5173
+- Backend (Laravel API): http://api.devhub.com/
+- Frontend (React + Vite): http://devhub.com/
 
 Para finalizar el entorno de desarrollo, ejecuta el siguiente comando desde la raíz del proyecto:
 
