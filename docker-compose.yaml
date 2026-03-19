@@ -1,41 +1,80 @@
 services:
-  # PostgreSQL
-  postgres:
+  # Postgres
+  db:
     image: postgres:17
-    container_name: postgres_db
-    restart: unless-stopped
+    container_name: devhub_db
     environment:
-      POSTGRES_DB: laravel
-      POSTGRES_USER: laravel
-      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    #ports:
+    #  - "${POSTGRES_PORT}"
+    networks:
+      - devhub_network
     volumes:
-      - postgres_data:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
+      - devhub_db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 60s
+    restart: unless-stopped
   # Laravel
   backend:
     build: ./backend
-    container_name: laravel_app
+    container_name: devhub_backend
+    depends_on:
+      db:
+        condition: service_healthy
+    #ports:
+    #  - "${LARAVEL_PORT}"
+    networks:
+      - devhub_network
     volumes:
       - ./backend:/var/www
-    ports:
-      - "8000:8000"
-    depends_on:
-      - postgres
     command: >
       sh -c "composer install && php artisan key:generate && php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=8000"
+    restart: unless-stopped
   # React + Vite
   frontend:
     build: ./frontend
-    container_name: react_app
+    container_name: devhub_frontend
+    depends_on:
+      - backend
+    #ports:
+    #  - "${REACT_VITE_PORT}"
+    networks:
+      - devhub_network
     volumes:
       - ./frontend:/app
       - /app/node_modules
-    ports:
-      - "5173:5173"
     working_dir: /app
     command: >
       sh -c "npm install && npm run dev -- --host"
+    restart: unless-stopped
+  # Nginx
+  nginx:
+    image: nginx:alpine
+    container_name: devhub_nx
+    depends_on:
+      - backend
+      - frontend
+    ports:
+      - "${NGINX_PORT}"
+    networks:
+      devhub_network:
+        aliases:
+          - devhub.com
+          - api.devhub.com
+    volumes:
+      - ./nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf:ro
+    restart: unless-stopped
+# Networks
+networks:
+  devhub_network:
+    name: devhub_network
 # Volumes
 volumes:
-  postgres_data:
+  devhub_db_data:
+    name: devhub_db_data
