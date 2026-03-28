@@ -163,7 +163,7 @@ docker compose build
 docker compose up -d
 ```
 
-El primer comando construirá las imágenes necesarias y el segundo levantará los servicios del backend y frontend en segundo plano.
+El primer comando construirá las imágenes necesarias y el segundo levantará los servicios backend y frontend en segundo plano.
 
 Una vez que los contenedores estén activos, puedes acceder a los servicios desde tu navegador:
 
