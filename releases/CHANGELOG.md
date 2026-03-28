@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 - This CHANGELOG.md to track all notable changes to this project going forward.
 
+- A configuration file for GitHub Pages documents (`docs/_config.yaml`).
+
 ### Changed
 
 - The files `CODE_OF_CONDUCT.md` and `SECURITY.md` have been moved from the `.github` directory to `docs`.
