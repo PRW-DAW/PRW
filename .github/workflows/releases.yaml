@@ -1,0 +1,44 @@
+name: Releases
+on:
+  push:
+    tags:
+      - '[0-9]+.[0-9]+.[0-9]*'  # 1.0.0, 2.1.3, 1.0.0-alpha, etc.
+permissions:
+  contents: write
+  id-token: write
+  attestations: write
+  artifact-metadata: write
+env:
+  ARTIFACT: devhub
+jobs:
+  release:
+    runs-on: ubuntu-slim
+    steps:
+      # Checkout
+      - name: Checkout
+        uses: actions/checkout@v6
+      # Build artifacts
+      - name: Build artifacts
+        run: |
+          zip -r ${{ env.ARTIFACT }}-${{ github.ref_name }}.zip backend/ docs/ frontend/ nginx/ CONTRIBUTING LICENSE .env.example docker-compose.yaml
+          unzip -l ${{ env.ARTIFACT }}-${{ github.ref_name }}.zip
+          tar -czvf ${{ env.ARTIFACT }}-${{ github.ref_name }}.tar.gz backend/ docs/ frontend/ nginx/ CONTRIBUTING LICENSE .env.example docker-compose.yaml
+          tar -tzvf ${{ env.ARTIFACT }}-${{ github.ref_name }}.tar.gz
+      # Create GitHub Release
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create ${{ github.ref_name }} \
+            --title ${{ github.ref_name }} \
+            --generate-notes \
+            ${{ env.ARTIFACT }}-${{ github.ref_name }}.zip \
+            ${{ env.ARTIFACT }}-${{ github.ref_name }}.tar.gz
+      # Attest artifacts
+      - name: Attest artifacts
+        uses: actions/attest@v4
+        with:
+          subject-path: |
+            ${{ env.ARTIFACT }}-${{ github.ref_name }}.zip
+            ${{ env.ARTIFACT }}-${{ github.ref_name }}.tar.gz
+          push-to-registry: true
