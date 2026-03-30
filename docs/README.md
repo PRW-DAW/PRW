@@ -38,11 +38,19 @@ Este proyecto se ha desarrollado en un sistema [Linux](https://github.com/torval
 
 ```
 /
+├── docs/
+|   ├── _config.yaml
+|   ├── CODE_OF_CONDUCT.md
+|   ├── README.md
+|   └── SECURITY.md
 ├── backend/
 │   ├── .env
 │   └── Dockerfile
 ├── frontend/
 │   └── Dockerfile
+├── CONTRIBUTING
+├── LICENSE
+├── .env
 └── docker-compose.yaml
 ```
 
