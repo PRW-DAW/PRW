@@ -180,7 +180,7 @@ Una vez que los contenedores estén activos, puedes acceder a los servicios desd
 Para finalizar el entorno de desarrollo, ejecuta el siguiente comando desde la raíz del proyecto:
 
 ```shell
-docker compose down -v
+docker compose down
 ```
 
 Este comando detiene los contenedores y elimina los datos locales del desarrollo.
