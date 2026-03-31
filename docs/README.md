@@ -79,9 +79,8 @@ Detalles de la instalación del frontend:
 
 1. Project name: **frontend**
 2. Select a framework: **React**
-3. Select a variant: **JavaScript**
-4. Use Vite 8 beta (Experimental)?: **No**
-5. Install with npm and start now?: **No**
+3. Select a variant: **TypeScript**
+4. Install with npm and start now?: **No**
 
 ## Clona el repositorio
 
