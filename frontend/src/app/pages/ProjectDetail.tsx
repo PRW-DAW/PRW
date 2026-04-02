@@ -15,7 +15,7 @@ interface Comment {
 
 export default function ProjectDetail() {
   const navigate = useNavigate();
-  const { id } = useParams();
+  const { id: _id } = useParams();
   const [newComment, setNewComment] = useState("");
   const [comments, setComments] = useState<Comment[]>([
     {
