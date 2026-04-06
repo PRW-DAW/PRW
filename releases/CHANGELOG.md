@@ -8,7 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Added
 
-- Imported Figma project designs into the frontend for initial UI implementation.
+- ...
 
 ### Changed
 
@@ -24,11 +24,21 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Fixed
 
-- Resolved TypeScript error "Cannot find type definition file for 'vite/client'" by removing the `"types": ["vite/client"]` entry from `tsconfig.app.json`.
+- ...
 
 ### Security
 
 - ...
+
+## [0.3.0] - 2026/04/06
+
+### Added
+
+- Imported Figma project designs into the frontend for initial UI implementation.
+
+### Fixed
+
+- Resolved TypeScript error "Cannot find type definition file for 'vite/client'" by removing the `"types": ["vite/client"]` entry from `tsconfig.app.json`.
 
 ## [0.2.0] - 2026/03/31
 
@@ -55,7 +65,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 - Initial files.
 
-[unreleased]: https://github.com/PRW-DAW/DevHub/compare/0.2.0...HEAD
+[unreleased]: https://github.com/PRW-DAW/DevHub/compare/0.3.0...HEAD
+[0.3.0]: https://github.com/PRW-DAW/DevHub/releases/tag/0.3.0
 [0.2.0]: https://github.com/PRW-DAW/DevHub/releases/tag/0.2.0
 [0.1.0]: https://github.com/PRW-DAW/DevHub/releases/tag/0.1.0
 [0.0.1]: https://github.com/PRW-DAW/DevHub/releases/tag/0.0.1
