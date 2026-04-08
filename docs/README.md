@@ -24,9 +24,9 @@
 3. [Clona el repositorio](#clona-el-repositorio)
 4. [Configuración del proyecto](#configuración-del-proyecto)
 5. [Configuración de hosts](#configuración-de-hosts)
-7. [Entorno de desarrollo](#entorno-de-desarrollo)
-8. [Recursos](#recursos)
-9. [Créditos](#créditos)
+6. [Entorno de desarrollo](#entorno-de-desarrollo)
+7. [Recursos](#recursos)
+8. [Créditos](#créditos)
 
 ## Introducción
 
@@ -140,6 +140,10 @@ DB_PORT=5432
 DB_DATABASE=postgres
 DB_USERNAME=fjrodafo
 DB_PASSWORD=password
+
+SANCTUM_STATEFUL_DOMAINS=devhub.com
+FRONTEND_URL=http://devhub.com
+SESSION_DOMAIN=devhub.com
 ```
 
 > [!IMPORTANT]
