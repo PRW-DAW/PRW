@@ -8,7 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Added
 
-- API + Database migrations (Register, Login, Create & Read Post) [Link](https://github.com/PRW-DAW/DevHub/blob/main/docs/date/20260408.md)
+- API + Database migrations (Register, Login, Create & Read Post). [[Link](https://github.com/PRW-DAW/DevHub/blob/main/docs/date/20260408.md)]
 
 ### Changed
 
