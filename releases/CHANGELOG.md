@@ -8,16 +8,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Added
 
-- `PrivateRoute` component to protect authenticated routes, redirecting to login if no token is found in `localStorage`.
-- Feed now fetches real posts from the API using `useEffect`.
-- Publishing a project from the Feed now sends a POST request to the API.
-- Search bar filters over real API posts.
-- Loading, error and empty states in the Feed.
+- ...
 
 ### Changed
 
-- `routes.tsx` updated to wrap all routes except `/` with `PrivateRoute`.
-- `Feed.tsx` migrated from static mock data to real API data.
+- ...
 
 ### Deprecated
 
@@ -34,6 +29,21 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 ### Security
 
 - ...
+
+## [0.6.0] - 2026/04/10
+
+### Added
+
+- `PrivateRoute` component to protect authenticated routes, redirecting to login if no token is found in `localStorage`.
+- Feed now fetches real posts from the API using `useEffect`.
+- Publishing a project from the Feed now sends a POST request to the API.
+- Search bar filters over real API posts.
+- Loading, error and empty states in the Feed.
+
+### Changed
+
+- `routes.tsx` updated to wrap all routes except `/` with `PrivateRoute`.
+- `Feed.tsx` migrated from static mock data to real API data.
 
 ## [0.5.0] - 2026/04/08
 
@@ -91,7 +101,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 - Initial files.
 
-[unreleased]: https://github.com/PRW-DAW/DevHub/compare/0.5.0...HEAD
+[unreleased]: https://github.com/PRW-DAW/DevHub/compare/0.6.0...HEAD
+[0.6.0]: https://github.com/PRW-DAW/DevHub/releases/tag/0.6.0
 [0.5.0]: https://github.com/PRW-DAW/DevHub/releases/tag/0.5.0
 [0.4.0]: https://github.com/PRW-DAW/DevHub/releases/tag/0.4.0
 [0.3.0]: https://github.com/PRW-DAW/DevHub/releases/tag/0.3.0
