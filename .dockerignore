@@ -1,13 +1,21 @@
 # Git
-/.git
-.gitattributes
-.gitignore
+/.git/
+/.gitattributes
+/.gitignore
 
 # GitHub
-/.github
+/.github/
 
 # VSCode
-/.vscode
+/.vscode/
 
-# Releases
-/releases
+# Documents
+/docs/
+
+# Secrets
+/.env
+/.env.*
+
+# Docker
+/.dockerignore
+/docker-compose.yaml
