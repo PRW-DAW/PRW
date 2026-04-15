@@ -40,6 +40,8 @@ export default function Profile() {
   const [isAddProjectModalOpen, setIsAddProjectModalOpen] = useState(false);
   const [projects, setProjects] = useState<Project[]>([]);
   const [loadingProjects, setLoadingProjects] = useState(true);
+  const [followersCount, setFollowersCount] = useState(0);
+  const [followingCount, setFollowingCount] = useState(0);
 
   const authUser: AuthUser = JSON.parse(localStorage.getItem("user") || "{}");
 
@@ -68,25 +70,35 @@ export default function Profile() {
   ]);
 
   useEffect(() => {
-    const fetchMyProjects = async () => {
+    const fetchData = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await fetch("http://api.devhub.com/api/me/projects", {
-          headers: {
-            "Accept": "application/json",
-            "Authorization": `Bearer ${token}`,
-          },
+
+        // Proyectos
+        const resProjects = await fetch("http://api.devhub.com/api/me/projects", {
+          headers: { "Accept": "application/json", "Authorization": `Bearer ${token}` },
         });
-        if (!res.ok) throw new Error();
-        const data = await res.json();
-        setProjects(data.data);
+        if (resProjects.ok) {
+          const dataProjects = await resProjects.json();
+          setProjects(dataProjects.data);
+        }
+
+        // Contadores
+        const resMe = await fetch("http://api.devhub.com/api/me", {
+          headers: { "Accept": "application/json", "Authorization": `Bearer ${token}` },
+        });
+        if (resMe.ok) {
+          const dataMe = await resMe.json();
+          setFollowersCount(dataMe.followers_count);
+          setFollowingCount(dataMe.following_count);
+        }
       } catch {
-        // silencioso, simplemente no muestra proyectos
+        // silencioso
       } finally {
         setLoadingProjects(false);
       }
     };
-    fetchMyProjects();
+    fetchData();
   }, []);
 
   const handleAddComment = (e: React.FormEvent) => {
@@ -211,13 +223,13 @@ export default function Profile() {
               }}>
                 <div className="flex items-center gap-2">
                   <Users size={20} style={{ color: "#7C3AED" }} />
-                  <span className="font-bold" style={{ color: "#1A1A2E" }}>0</span>
+                  <span className="font-bold" style={{ color: "#1A1A2E" }}>{followersCount}</span>
                   <span className="text-sm" style={{ color: "#6B6880" }}>Seguidores</span>
                 </div>
                 <div style={{ width: "2px", height: "24px", backgroundColor: "#7C3AED", opacity: 0.2 }} />
                 <div className="flex items-center gap-2">
                   <Users size={20} style={{ color: "#7C3AED" }} />
-                  <span className="font-bold" style={{ color: "#1A1A2E" }}>0</span>
+                  <span className="font-bold" style={{ color: "#1A1A2E" }}>{followingCount}</span>
                   <span className="text-sm" style={{ color: "#6B6880" }}>Siguiendo</span>
                 </div>
               </div>
