@@ -130,6 +130,7 @@ Además, crea el archivo de variables de entorno para Laravel:
 
 ```shell
 cp backend/.env.example backend/.env
+nano backend/.env
 ```
 
 Luego, edita el archivo `.env` y configura las credenciales de la base de datos utilizada en Docker:
