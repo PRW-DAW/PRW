@@ -104,6 +104,7 @@ Antes de ejecutar el proyecto, crea el archivo de variables de entorno para Dock
 
 ```shell
 cp .env.example .env
+nano .env
 ```
 
 Luego, edita el archivo `.env` y configura las credenciales:
