@@ -21,10 +21,9 @@ build_and_push() {
         "./${context}"
 
     for tag in "${MAJOR}" "${MINOR}" "${PATCH}" "latest"; do
-        docker push "ghcr.io/prw-daw/devhub-${name}:${tag}" &
-        docker push "fjrodafo/devhub-${name}:${tag}" &
+        docker push "ghcr.io/prw-daw/devhub-${name}:${tag}"
+        docker push "fjrodafo/devhub-${name}:${tag}"
     done
-    wait
 }
 
 build_and_push nginx nginx
