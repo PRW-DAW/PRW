@@ -8,11 +8,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Added
 
-- ...
+- `/terms` page with Terms of Use.
+- `/help` page with FAQ accordion.
+- `/settings` page with account settings.
+- `/customization` page with personalization options.
+- Animated background video on the login page.
+- Password show/hide toggle on the login page.
+- SVG logo (`de-lado.svg`) on the login page and sidebar.
+- Sidebar logo is now clickable and navigates to the feed.
+- Navigation routes added to `AvatarDropdown`.
 
 ### Changed
 
-- ...
+- Beta badges on the login page now use `β`, `#` and `✓` instead of emojis.
 
 ### Deprecated
 
@@ -20,7 +28,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Removed
 
-- ...
+- Search bar removed from `Companies.tsx` (redundant, not connected to state).
+- Search bar removed from `Profile.tsx` (redundant, not connected to state).
 
 ### Fixed
 
