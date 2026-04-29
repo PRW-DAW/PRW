@@ -8,6 +8,32 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Added
 
+- ...
+
+### Changed
+
+- ...
+
+### Deprecated
+
+- ...
+
+### Removed
+
+- ...
+
+### Fixed
+
+- ...
+
+### Security
+
+- ...
+
+## [0.13.0] - 2026/04/29
+
+### Added
+
 - `/terms` page with Terms of Use.
 - `/help` page with FAQ accordion.
 - `/settings` page with account settings.
@@ -22,22 +48,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 - Beta badges on the login page now use `β`, `#` and `✓` instead of emojis.
 
-### Deprecated
-
-- ...
-
 ### Removed
 
 - Search bar removed from `Companies.tsx` (redundant, not connected to state).
 - Search bar removed from `Profile.tsx` (redundant, not connected to state).
-
-### Fixed
-
-- ...
-
-### Security
-
-- ...
 
 ## [0.12.0] - 2026/04/22
 
@@ -189,7 +203,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 - Initial files.
 
-[unreleased]: https://github.com/PRW-DAW/DevHub/compare/0.12.0...HEAD
+[unreleased]: https://github.com/PRW-DAW/DevHub/compare/0.13.0...HEAD
+[0.13.0]: https://github.com/PRW-DAW/DevHub/releases/tag/0.13.0
 [0.12.0]: https://github.com/PRW-DAW/DevHub/releases/tag/0.12.0
 [0.11.0]: https://github.com/PRW-DAW/DevHub/releases/tag/0.11.0
 [0.10.0]: https://github.com/PRW-DAW/DevHub/releases/tag/0.10.0
