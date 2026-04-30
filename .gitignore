@@ -1,2 +1,5 @@
+# Vercel
+/.vercel
+
 # Secrets
 .env
